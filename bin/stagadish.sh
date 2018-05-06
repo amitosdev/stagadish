@@ -53,7 +53,6 @@ stagadish() {
   }
   else { echo "Action disapproved. See you next time!"; exit 1; }
   fi
-  exit;
 }
 
 # handle arguments
