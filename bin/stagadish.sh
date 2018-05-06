@@ -7,7 +7,7 @@ PSSH_GITHUB="https://github.com/robinbowes/pssh"
 
 # display dependencies error
 display_dep_error() {
-  echo "stagadish requires '$1' module. Please install it from '$2'."
+  echo "stagadish requires '$1'. Please install it from '$2'."
   exit;
 }
 
@@ -40,18 +40,18 @@ display_missing_params() {
 
 # main function
 stagadish() {
-  echo "Getting instances list for '$OPTION_NAME $OPTION_VALUE'";
+  echo "Getting instance list for '$OPTION_NAME $OPTION_VALUE'";
   local TEMP_FILE_NAME=".temp-pssh-hosts-$(date +%s%3N)";
   awless list instances "$OPTION_NAME" "$OPTION_VALUE";
-  read -p "Are you sure you want execute '$SSH_COMMAND' in the following instances [Y/n]? " IS_APPROVE;
-  if [ $IS_APPROVE == 'n' ];
-    then { echo "Action disapproved. See you next time!"; exit 1; }
-  else {
-    echo "Executing '$SSH_COMMAND' \n";
-    awless list instances "$OPTION_NAME" "$OPTION_VALUE" --columns 'Public IP' --format tsv | grep -v "Public IP" > ${TEMP_FILE_NAME}; 
-    pssh -O StrictHostKeyChecking=no -h ${TEMP_FILE_NAME} -i "$SSH_COMMAND"; 
-    rm ${TEMP_FILE_NAME};
+  read -p "Are you sure you want to execute '$SSH_COMMAND' in the following instances [Y/n]? " IS_APPROVE;
+  if [ $IS_APPROVE == 'Y' ];
+    then {
+      echo "Executing '$SSH_COMMAND' \n";
+      awless list instances "$OPTION_NAME" "$OPTION_VALUE" --columns 'Public IP' --format tsv | grep -v "Public IP" > ${TEMP_FILE_NAME}; 
+      pssh -O StrictHostKeyChecking=no -h ${TEMP_FILE_NAME} -i "$SSH_COMMAND"; 
+      rm ${TEMP_FILE_NAME};
   }
+  else { echo "Action disapproved. See you next time!"; exit 1; }
   fi
   exit;
 }
