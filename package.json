@@ -1,0 +1,27 @@
+{
+  "name": "stagadish",
+  "description": "preforme parallel ssh commands in aws instances by tag",
+  "version": "0.0.1",
+  "author": "Amit Tal <amitosdev@gmail.com>",
+  "homepage": "https://github.com/amitosdev/stagadish",
+  "bugs": "https://github.com/amitosdev/stagadish/issues",
+  "keywords": [
+    "awless",
+    "pssh",
+    "parallel",
+    "ssh",
+    "aws"
+  ],
+  "bin": {
+    "stagadish": "./bin/stagadish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/amitosdev/stagadish.git"
+  },
+  "preferGlobal": true,
+  "os": [
+    "!win32"
+  ],
+  "license": "MIT"
+}

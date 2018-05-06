@@ -1,0 +1,10 @@
+# IDEs
+.idea
+.vscode
+
+# OSX files
+.DS_Store
+
+# NPM
+npm-debug.log
+package-lock.json
