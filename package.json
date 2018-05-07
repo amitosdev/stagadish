@@ -1,7 +1,7 @@
 {
   "name": "stagadish",
   "description": "preforme parallel ssh commands in aws instances by tag",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Amit Tal <amitosdev@gmail.com>",
   "homepage": "https://github.com/amitosdev/stagadish",
   "bugs": "https://github.com/amitosdev/stagadish/issues",
