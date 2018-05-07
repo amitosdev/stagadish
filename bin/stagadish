@@ -1,5 +1,4 @@
-
-#!/bin/sh
+#!/usr/bin/env bash
 
 # dependencies URL's
 AWLESS_GITHUB="https://github.com/wallix/awless"
